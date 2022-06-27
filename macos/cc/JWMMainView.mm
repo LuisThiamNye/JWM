@@ -302,6 +302,10 @@ static const NSRange kEmptyRange = { NSNotFound, 0 };
     [super updateTrackingAreas];
 }
 
+- (void)resetCursorRects {
+    [fWindow->fNSWindow.contentView addCursorRect:[self bounds] cursor:fWindow->fCursor];
+}
+
 - (void)mouseMoved:(NSEvent *)event {
     onMouseMoved(fWindow, event);
 }
